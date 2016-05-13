@@ -41,13 +41,14 @@
 
         <Grid Name="mainContent">
             <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
-            <Grid Name="imageGrid">
+            <Grid Name="imageGrid" Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition Height="50"/>
@@ -59,15 +60,14 @@
                 <TextBlock Name="profileUrl" Visibility="Collapsed"></TextBlock>
                 <TextBlock Name="profileName" Grid.Row="1" HorizontalAlignment ="Center" VerticalAlignment="Center" ></TextBlock>
             </Grid>
-            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Name="badgesPanel" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Name="badgeCount" ></TextBlock>
                 <TextBlock Margin="5,0,0,0">Badges Earned</TextBlock>
             </StackPanel>
-            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Name="pointsPanel" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Name="jsPoints" ></TextBlock>
                 <TextBlock Margin="5,0,0,0">JavaScript Points</TextBlock>
             </StackPanel>
-
         </Grid>
     </Grid>
 </Page>

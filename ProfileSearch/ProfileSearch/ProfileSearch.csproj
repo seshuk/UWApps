@@ -138,6 +138,12 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProfileHelper\ProfileHelper.csproj">
+      <Project>{4851bbcf-b662-412d-b1da-8335eaddfdc4}</Project>
+      <Name>ProfileHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
