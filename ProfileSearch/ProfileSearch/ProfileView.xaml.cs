@@ -51,11 +51,11 @@ namespace ProfileSearch
                 var profileHelper = new TreehouseProfileHelper();
                 var userProfile = await profileHelper.GetUserProfile(searchString);
 
-                profileName.Text = userProfile.ProfileName;
-                profileUrl.Text = userProfile.GravatarUrl;
+                profileName.Text = "@" + userProfile.Profile_Name;
+                profileUrl.Text = userProfile.Gravatar_Url;
 
-                badgeCount.Text = userProfile.BadgeCout.ToString();
-                jsPoints.Text = userProfile.JavaScriptPoints.ToString();
+                badgeCount.Text = userProfile.Badges.Length.ToString();// BadgeCout.ToString();
+                jsPoints.Text = userProfile.Points.JavaScript.ToString(); // JavaScriptPoints.ToString();
                 var uri = new Uri(profileUrl.Text, UriKind.Absolute);
                 profileImage.Source = new BitmapImage(uri);
 

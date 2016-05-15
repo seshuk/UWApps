@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:paddingLeft="20dp"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar1" />
+    <TextView
+        android:text="Loading..."
+        android:layout_width="match_parent"
+        android:layout_height="21.0dp"
+        android:id="@+id/textStatus"
+        android:layout_marginLeft="10.0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:gravity="center" />
+    <ImageView
+        android:id="@+id/profileIcon"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="225.5dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center_horizontal" />
+    <TextView
+        android:text="seshuk"
+        android:layout_width="match_parent"
+        android:layout_height="21.0dp"
+        android:id="@+id/textProfileName"
+        android:layout_marginLeft="10.0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:gravity="center" />
+    <TextView
+        android:text="Badges"
+        android:layout_width="match_parent"
+        android:layout_height="68.5dp"
+        android:id="@+id/textBadgeCount"
+        android:layout_marginLeft="10.0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:gravity="center" />
+    <TextView
+        android:text="JavaScript points"
+        android:layout_width="match_parent"
+        android:layout_height="68.5dp"
+        android:id="@+id/textJavaScriptPoints"
+        android:layout_marginLeft="10.0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:gravity="center" />
+</LinearLayout>

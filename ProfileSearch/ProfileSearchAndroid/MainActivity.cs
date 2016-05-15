@@ -5,13 +5,19 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using ProfileHelper;
+using System.Threading.Tasks;
 
 namespace ProfileSearchAndroid
 {
     [Activity(Label = "ProfileSearchAndroid", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-        int count = 1;
+       // int count = 1;
+        private EditText searchText;
+        private Button searchButton;
+
+        //private ProfileHelper.TreehouseProfileHelper helper;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -22,10 +28,19 @@ namespace ProfileSearchAndroid
 
             // Get our button from the layout resource,
             // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.MyButton);
+            searchText = FindViewById<EditText>(Resource.Id.editText1);
+            searchButton = FindViewById<Button>(Resource.Id.SearchButton);
 
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            searchButton.Click +=  delegate {
+                //  await LoadData(searchText.Text);
+                //button.Text = string.Format("{0} clicks!", count++);
+                var intent = new Intent(this, typeof(ProfileViewActivity));
+                intent.PutExtra("searchString", searchText.Text);
+                StartActivity(intent);
+            };
         }
+
+      
     }
 }
 
