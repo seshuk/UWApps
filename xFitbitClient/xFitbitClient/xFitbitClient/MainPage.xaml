@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="xFitbitClient.MainPage">
+  <Grid RowSpacing="10">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="150" />
+      <RowDefinition Height="50" />
+      <RowDefinition />
+    </Grid.RowDefinitions>
+    
+     <Button Grid.Row="1" Text="Get My fitbit Profile" x:Name="BtnGetProfile" Clicked="BtnGetProfile_Clicked"></Button>
+     <WebView Source="http://google.com" Grid.Row="2" x:Name="webView1" Navigating="webOnNavigating"/>
+  </Grid>
+</ContentPage>
