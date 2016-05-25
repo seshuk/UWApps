@@ -2,6 +2,40 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="xFitbitClient.ActivityView"
-  Title="Activities">
-  <Label Text="Activity View shall be displayed here!" VerticalOptions="Center" HorizontalOptions="Center" />
+             Title="Activities"
+   >
+  <StackLayout x:Name="layoutRoot">
+  <ListView x:Name="badgesListView" >
+    <ListView.RowHeight>
+      <OnPlatform x:TypeArguments="x:Int32" Android="130"/>
+    </ListView.RowHeight>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <Grid Padding="10,5,10,5">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="15"/>
+              <RowDefinition Height="50"/>
+              <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="150" />
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+          
+            <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Source="{Binding Path=Image100px}" />
+            <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=ShortName}" Font="Large"/>
+            <Label Grid.Row="2" Grid.Column="1" Text="{Binding Path=Description}"/>
+          </Grid>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    <ListView.Header>
+      <StackLayout></StackLayout>
+    </ListView.Header>
+    <ListView.Footer>
+      <StackLayout></StackLayout>
+    </ListView.Footer>
+  </ListView>
+    </StackLayout>
 </ContentPage>

@@ -25,11 +25,11 @@ namespace xFitbitClient
         public ProfileViewPage()
         {
             InitializeComponent();
-            // InitializeComponent();
+
             webView = this.FindByName<WebView>("webView1");
             webView.IsVisible = false;
             profileViewLayout = this.FindByName<StackLayout>("userProfileview");
-            // busyIndicator = this.FindByName<ActivityIndicator>("busyIndicator");
+
             busyIndicator = new ActivityIndicator();
         }
 
