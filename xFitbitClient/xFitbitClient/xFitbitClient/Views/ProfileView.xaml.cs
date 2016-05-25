@@ -15,24 +15,35 @@ namespace xFitbitClient
         redirect
     }
 
-    public partial class MainPage : ContentPage
+    public partial class ProfileViewPage : ContentPage
     {
         private WebView webView;
         private AuthState aState;
+        private StackLayout profileViewLayout;
+        private ActivityIndicator busyIndicator;
 
-        public MainPage()
+        public ProfileViewPage()
         {
             InitializeComponent();
-           // InitializeComponent();
-            //webView = this.FindByName<WebView>("webView1");
+            // InitializeComponent();
+            webView = this.FindByName<WebView>("webView1");
+            webView.IsVisible = false;
+            profileViewLayout = this.FindByName<StackLayout>("userProfileview");
+            // busyIndicator = this.FindByName<ActivityIndicator>("busyIndicator");
+            busyIndicator = new ActivityIndicator();
         }
 
-        public void BtnGetProfile_Clicked(object sender, EventArgs args)
+        public async void BtnGetProfile_Clicked(object sender, EventArgs args)
         {
             //webView.Source = "https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=227M43&redirectUri=http://seshuk.com/fitbitdataservice/&scope=activity%20location%20profile&expires_in=604800";
             //aState = AuthState.authRequest;
+            profileViewLayout.Children.Add(busyIndicator);
+            busyIndicator.IsRunning = true;
             FitbitProfileHelper helper = new FitbitProfileHelper();
-            var profile = helper.GetUserProfile();
+            var profile = await helper.GetUserProfile();
+            profileViewLayout.BindingContext = profile.User;
+            busyIndicator.IsRunning = false;
+            profileViewLayout.Children.Remove(busyIndicator);
         }
 
         void webOnNavigating(object sender, WebNavigatingEventArgs e)

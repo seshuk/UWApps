@@ -27,6 +27,53 @@
                         </ObjectAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
+                <VisualState>
+                    <!-- VisualState to be triggered when window width is >=0 and <548 effective pixels -->
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="640" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- For the most narrow windows and phones in portrait orientation, this state collapses the SplitView pane into overlay mode
+                        and adds dynamic RelativePanel constraints that puts all elements stacked below each other -->
+                        <Setter Target="badgesPanel.(RelativePanel.RightOf)" Value="imageGrid" />
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+       
+            <VisualStateGroup x:Name="VisualStateGroup1">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition From="LoadingState" GeneratedDuration="0:0:0.3" To="NormalState"/>
+                </VisualStateGroup.Transitions>
+                <VisualState>
+                    <!-- VisualState to be triggered when window width is >=0 and <548 effective pixels -->
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- For the most narrow windows and phones in portrait orientation, this state collapses the SplitView pane into overlay mode
+                        and adds dynamic RelativePanel constraints that puts all elements stacked below each other -->
+                        <Setter Target="badgesPanel.(RelativePanel.Below)" Value="imageGrid" />
+                        <Setter Target="pointsPanel.(RelativePanel.Below)" Value="badgesPanel" />
+
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState>
+                    <!-- VisualState to be triggered when window width is >=0 and <548 effective pixels -->
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="248" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- For the most narrow windows and phones in portrait orientation, this state collapses the SplitView pane into overlay mode
+                        1
+                        and adds dynamic RelativePanel constraints that puts all elements stacked below each other -->
+                        <Setter Target="imageGrid.(RelativePanel.AlignLeftWithPanel)" Value="true" />
+                        <Setter Target="badgesPanel.(RelativePanel.RightOf)" Value="imageGrid" />
+                        <Setter Target="pointsPanel.(RelativePanel.Below)" Value="badgesPanel" />
+                        <Setter Target="imageGrid.Width" Value="200" />
+                    </VisualState.Setters>
+                </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
@@ -40,7 +87,7 @@
         </Grid>
 
         <Grid Name="mainContent">
-            <Grid.RowDefinitions>
+            <!--<Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="100"/>
@@ -67,7 +114,35 @@
             <StackPanel Name="pointsPanel" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Name="jsPoints" ></TextBlock>
                 <TextBlock Margin="5,0,0,0">JavaScript Points</TextBlock>
-            </StackPanel>
+            </StackPanel>-->
         </Grid>
+
+        <RelativePanel>
+            <Grid Name="imageGrid" >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+
+                <Image Name="profileImage" Source="Assets\SearchIcon.png">
+                </Image>
+                <TextBlock Name="profileUrl" Visibility="Collapsed"></TextBlock>
+                <TextBlock Name="profileName" Grid.Row="1" HorizontalAlignment ="Center" VerticalAlignment="Center" ></TextBlock>
+            </Grid>
+            <!--<TextBlock RelativePanel.RightOf="imageGrid">Thisis a test</TextBlock>-->
+            <StackPanel Margin="20,20"  
+                        RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                        Name="badgesPanel" Orientation="Horizontal" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center">
+                <TextBlock Name="badgeCount" ></TextBlock>
+                <TextBlock Margin="5,0,0,0">Badges Earned</TextBlock>
+            </StackPanel>
+            <StackPanel Margin="20,20" RelativePanel.Below="badgesPanel" RelativePanel.AlignHorizontalCenterWithPanel="True" Name="pointsPanel" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Name="jsPoints" ></TextBlock>
+                <TextBlock Margin="5,0,0,0">JavaScript Points</TextBlock>
+            </StackPanel>
+        </RelativePanel>
     </Grid>
 </Page>

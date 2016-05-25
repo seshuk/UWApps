@@ -11,10 +11,19 @@ namespace xFitbitClient
     {
         public App()
         {
+            var appTabs = new TabbedPage
+            {
+                Title = "Fitbit Demo client",
+                Children =
+                {
+                    new ProfileViewPage(),
+                    new ActivityView()
+                }
+            };
             // The root page of your application
-            MainPage pge = new MainPage();
+            //ProfileViewPage pge = new ProfileViewPage();
             
-            MainPage = pge;
+            MainPage = new NavigationPage(appTabs);
             
         }
 
