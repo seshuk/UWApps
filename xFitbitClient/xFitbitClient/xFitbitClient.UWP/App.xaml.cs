@@ -30,6 +30,7 @@ namespace xFitbitClient.UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            this.RequestedTheme = ApplicationTheme.Dark;
         }
 
         /// <summary>

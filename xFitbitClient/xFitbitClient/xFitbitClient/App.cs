@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace xFitbitClient
 {
@@ -20,8 +15,6 @@ namespace xFitbitClient
                     new ActivityView()
                 }
             };
-            // The root page of your application
-            //ProfileViewPage pge = new ProfileViewPage();
             
             MainPage = new NavigationPage(appTabs);
             

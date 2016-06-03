@@ -13,27 +13,27 @@ namespace xFitbitClient
     {
         public async Task<FitbitUserProfile> GetUserProfile()
         {
-            FitbitUserProfile userProfile = null;
+            FitbitUserProfile userProfile = new FitbitUserProfile();
 
 
             try
             {
-            var uri = new Uri("https://api.fitbit.com/1/user/-/profile.json");
+                var uri = new Uri("https://api.fitbit.com/1/user/-/profile.json");
 
-            HttpClient client = new HttpClient();
-            var request = new HttpRequestMessage
-            {
-                RequestUri = uri,
-                Method = HttpMethod.Get
-            };
+                HttpClient client = new HttpClient();
+                var request = new HttpRequestMessage
+                {
+                    RequestUri = uri,
+                    Method = HttpMethod.Get
+                };
 
-            request.Headers.Add("Authorization",
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NjQ1Nzk1ODcsInNjb3BlcyI6InJwcm8gcmxvYyByYWN0Iiwic3ViIjoiMllLUjlGIiwiYXVkIjoiMjI3TTQzIiwiaXNzIjoiRml0Yml0IiwidHlwIjoiYWNjZXNzX3Rva2VuIiwiaWF0IjoxNDYzOTc0Nzg3fQ.UTdGNwLRHVq4rVWYckTwvFFgqz-ck-c3yXqr_LBmmfA");
+                request.Headers.Add("Authorization",
+                    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NjU1MTgzMDYsInNjb3BlcyI6InJwcm8gcmFjdCIsInN1YiI6IjJZS1I5RiIsImF1ZCI6IjIyN000MyIsImlzcyI6IkZpdGJpdCIsInR5cCI6ImFjY2Vzc190b2tlbiIsImlhdCI6MTQ2NDkxMzUwNn0.5Q124HWMUwCk3guUoyLCyvz-3Xwma6eswWK7--Ou_ow");
 
-            var response = await client.SendAsync(request);
-            string content = await response.Content.ReadAsStringAsync();
-                var profile = JsonConvert.DeserializeObject<FitbitUserProfile>(content);
-                userProfile = profile;
+                var response = await client.SendAsync(request);
+                string content = await response.Content.ReadAsStringAsync();
+                    var profile = JsonConvert.DeserializeObject<FitbitUserProfile>(content);
+                    userProfile = profile;
                
             }
             catch(Exception ex)
