@@ -28,7 +28,7 @@ namespace xFitbitClient
                 };
 
                 request.Headers.Add("Authorization",
-                    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NjU1MTgzMDYsInNjb3BlcyI6InJwcm8gcmFjdCIsInN1YiI6IjJZS1I5RiIsImF1ZCI6IjIyN000MyIsImlzcyI6IkZpdGJpdCIsInR5cCI6ImFjY2Vzc190b2tlbiIsImlhdCI6MTQ2NDkxMzUwNn0.5Q124HWMUwCk3guUoyLCyvz-3Xwma6eswWK7--Ou_ow");
+                    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyWUtSOUYiLCJhdWQiOiIyMjdNNDMiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyYWN0IHJwcm8iLCJleHAiOjE0NzAyOTE1MDksImlhdCI6MTQ2NzY5OTUwOX0.16PLy_cR60YTlKg0Sr3yoscFpia-srSelA7DJUoOqng");
 
                 var response = await client.SendAsync(request);
                 string content = await response.Content.ReadAsStringAsync();

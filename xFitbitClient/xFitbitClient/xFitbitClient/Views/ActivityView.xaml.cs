@@ -10,7 +10,7 @@ namespace xFitbitClient
         public ActivityView()
         {
             InitializeComponent();
-
+            this.Icon = "achievements.png";
             busyIndicator = new ActivityIndicator();
         }
 

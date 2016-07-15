@@ -7,7 +7,7 @@
   <StackLayout x:Name="layoutRoot">
   <ListView x:Name="badgesListView" >
     <ListView.RowHeight>
-      <OnPlatform x:TypeArguments="x:Int32" Android="130"/>
+      <OnPlatform x:TypeArguments="x:Int32" Android="130" iOS="150"/>
     </ListView.RowHeight>
     <ListView.ItemTemplate>
       <DataTemplate>
